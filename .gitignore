@@ -1,0 +1,8 @@
+.DS_Store
+*.zip
+tmp/
+backups/
+client-materials/
+.codex-finalizer/
+.wrangler/
+*.tmp.*
