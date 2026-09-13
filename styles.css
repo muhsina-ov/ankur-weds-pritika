@@ -201,6 +201,10 @@ a {
   object-fit: cover;
   object-position: center;
   z-index: 2;
+  background: transparent;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: opacity;
   transition: opacity 0.8s ease;
 }
 
@@ -211,6 +215,8 @@ a {
   background-position: center;
   z-index: 1;
   filter: brightness(0.98) saturate(1.05);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .gate__skip {
@@ -519,6 +525,10 @@ a {
     0 0 25px rgba(223, 183, 88, 0.35);
   cursor: pointer;
   overflow: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   animation: buttonRoyalGlow 3.5s ease-in-out infinite;
 }

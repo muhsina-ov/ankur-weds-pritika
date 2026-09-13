@@ -33,7 +33,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
 
   <link rel="icon" type="image/webp" href="assets/monogram-peacock-circle.webp" />
-  <link rel="stylesheet" href="styles.css?v=morning-1" />
+  <link rel="preload" href="assets/gate-opening.mp4" as="video" type="video/mp4" />
+  <link rel="preload" href="assets/gate-opening-poster.webp" as="image" type="image/webp" />
+  <link rel="stylesheet" href="styles.css?v=morning-2" />
 </head>
 <body class="locked has-js">
   <a class="skip-link" href="#main">Skip to invitation</a>
@@ -48,6 +50,9 @@
       id="gateVideo"
       class="gate__video"
       playsinline
+      webkit-playsinline
+      x5-playsinline
+      x5-video-player-type="h5-page"
       muted
       preload="auto"
       poster="assets/gate-opening-poster.webp"

@@ -76,6 +76,34 @@
   const gateSkip = document.querySelector('#gateSkip');
   const gateContent = document.querySelector('#gateContent');
   let gateTransitioned = false;
+  let isOpening = false;
+
+  // Pre-configure mobile video attributes and pre-warm buffers
+  if (gateVideo) {
+    gateVideo.muted = true;
+    gateVideo.defaultMuted = true;
+    gateVideo.playsInline = true;
+    try {
+      gateVideo.load();
+    } catch (e) {
+      // Ignore initial load error if browser prevents early background loading
+    }
+  }
+
+  // Pre-warm media on first touch anywhere on the page
+  const primeMedia = () => {
+    if (gateVideo && gateVideo.paused) {
+      gateVideo.muted = true;
+      gateVideo.defaultMuted = true;
+      try {
+        gateVideo.load();
+      } catch (e) {}
+    }
+    window.removeEventListener('touchstart', primeMedia);
+    window.removeEventListener('pointerdown', primeMedia);
+  };
+  window.addEventListener('touchstart', primeMedia, { passive: true, once: true });
+  window.addEventListener('pointerdown', primeMedia, { passive: true, once: true });
 
   function finishGateTransition() {
     if (gateTransitioned) return;
@@ -103,14 +131,15 @@
   }
 
   function openInvitation() {
-    if (!gate || gate.classList.contains('is-open')) return;
+    if (!gate || gate.classList.contains('is-open') || isOpening) return;
+    isOpening = true;
 
     // Start celebratory audio immediately on explicit user gesture
     playBgm();
 
     // Fade out the center invitation card to reveal the full video opening
     if (gateContent) {
-      gateContent.style.transition = 'opacity 0.7s ease, transform 0.8s ease';
+      gateContent.style.transition = 'opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
       gateContent.style.opacity = '0';
       gateContent.style.transform = 'scale(1.06)';
       gateContent.style.pointerEvents = 'none';
@@ -125,30 +154,63 @@
       gateSkip.addEventListener('click', finishGateTransition, { once: true });
     }
 
-    // Play video
-    if (gateVideo) {
-      gateVideo.currentTime = 0;
-      gateVideo.play().then(() => {
-        // Transition when camera reaches inner courtyard (around t = 5.2s)
-        const onTimeUpdate = () => {
-          if (gateVideo.currentTime >= 5.2) {
-            gateVideo.removeEventListener('timeupdate', onTimeUpdate);
-            finishGateTransition();
-          }
-        };
-        gateVideo.addEventListener('timeupdate', onTimeUpdate);
-        gateVideo.addEventListener('ended', finishGateTransition, { once: true });
-      }).catch((err) => {
-        console.log('Video autoplay deferred or blocked:', err);
-        finishGateTransition();
-      });
-    } else {
+    let transitionTriggered = false;
+    const triggerTransition = () => {
+      if (transitionTriggered) return;
+      transitionTriggered = true;
       finishGateTransition();
+    };
+
+    // Safety fallback: guaranteed transition so guests are never trapped if video stalls
+    const safetyTimer = window.setTimeout(triggerTransition, 5600);
+
+    if (gateVideo) {
+      // Ensure strict mobile WebKit compliance
+      gateVideo.muted = true;
+      gateVideo.defaultMuted = true;
+      gateVideo.playsInline = true;
+
+      const onTimeUpdate = () => {
+        // Our optimized video is 5.6s long; trigger seamless crossfade when camera reaches courtyard
+        if (gateVideo.currentTime >= 4.8) {
+          gateVideo.removeEventListener('timeupdate', onTimeUpdate);
+          window.clearTimeout(safetyTimer);
+          triggerTransition();
+        }
+      };
+
+      gateVideo.addEventListener('timeupdate', onTimeUpdate);
+      gateVideo.addEventListener('ended', () => {
+        window.clearTimeout(safetyTimer);
+        triggerTransition();
+      }, { once: true });
+
+      // Begin playback
+      const playPromise = gateVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // Playback successfully started
+        }).catch((err) => {
+          console.warn('Video playback deferred or low-power mode active:', err);
+          // If playback was blocked by device power saver, give 1.2s graceful pause before crossfading
+          window.setTimeout(() => {
+            window.clearTimeout(safetyTimer);
+            triggerTransition();
+          }, 1200);
+        });
+      }
+    } else {
+      triggerTransition();
     }
   }
 
   if (enterButton) {
     enterButton.addEventListener('click', openInvitation);
+    enterButton.addEventListener('touchend', (e) => {
+      // Prevent delayed synthetic click on touchscreens
+      e.preventDefault();
+      openInvitation();
+    }, { passive: false });
   }
   const skipLink = document.querySelector('.skip-link');
   if (skipLink) {
