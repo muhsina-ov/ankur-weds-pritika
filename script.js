@@ -468,7 +468,7 @@
       `DTEND:${end}`,
       `SUMMARY:${escapeIcs(title)}`,
       `LOCATION:${escapeIcs(location)}`,
-      'DESCRIPTION:Wedding celebration of Ankur Chauhan & Pritika Khanna (#AnkurKiPreeto)',
+      'DESCRIPTION:Wedding celebration of Ankur & Pritika (#AnkurKiPreeto)',
       'STATUS:CONFIRMED',
       'END:VEVENT',
       'END:VCALENDAR'

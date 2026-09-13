@@ -1,9 +1,9 @@
 # Ankur & Pritika — Wedding Invitation
 
 > **#AnkurKiPreeto**  
-> Two families. Five celebrations. One grand Punjabi wedding.
+> Two families but now one family forever · दो परिवारा दा मिलन
 
-Luxury digital wedding invitation for **Ankur Chauhan & Pritika Khanna**, celebrating on **04 December 2026** in New Delhi.
+Luxury digital wedding invitation for **Ankur & Pritika**, celebrating on **04 December 2026** in New Delhi.
 
 ---
 
@@ -24,8 +24,8 @@ Luxury digital wedding invitation for **Ankur Chauhan & Pritika Khanna**, celebr
 - **Joota Chhupai Game**: Interactive shoe hunt for Ankur's golden jutti with a celebratory petal shower and shagun ransom popup.
 
 ### Part 4: Celebrations, Venues & RSVP
-- Complete cards for all 5 wedding functions with Google Maps links and one-click `.ics` calendar file downloads.
-- Direct WhatsApp RSVP buttons connected to family coordinators Vanshika & Ameer.
+- Centered royal invitation cards for all 5 wedding functions matching the family's ChatGPT references, with Google Maps links and one-click `.ics` calendar file downloads.
+- Direct interactive RSVP contact cards with click-to-call and WhatsApp links connected to family coordinators Mamta (+91 88007 30303) and Vanshika (+91 82875 44529).
 
 ---
 
