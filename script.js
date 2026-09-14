@@ -340,7 +340,7 @@
     }
 
     // Nav Active Location
-    const sections = ['story', 'fun', 'celebrations', 'rsvp'];
+    const sections = ['celebrations', 'story', 'fun', 'rsvp'];
     let current = '';
     sections.forEach(id => {
       const el = document.getElementById(id);
@@ -381,7 +381,7 @@
 
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-  // --- PART 3 INTERACTIVE: Team Selector ---
+  // --- INTERACTIVE: Team Selector ---
   const teamButtons = document.querySelectorAll('[data-team]');
   const teamWelcome = document.querySelector('#teamWelcome');
   const teamStorageKey = 'ankur-pritika-team-choice';
@@ -402,7 +402,7 @@
       if (team === 'ankur') {
         teamWelcome.innerHTML = `<strong>TEAM ANKUR · THE BARAATIS</strong><p>Baraat mein swagat hai! Bring your loudest cheer &amp; best bhangra moves.</p>`;
       } else {
-        teamWelcome.innerHTML = `<strong>TEAM PRITIKA · THE LADKIWALE</strong><p>Welcome, ladkiwale! Keep a sharp eye on those juttis — the negotiation is on!</p>`;
+        teamWelcome.innerHTML = `<strong>TEAM PRITIKA · THE LADKIWALE</strong><p>Welcome, ladkiwale! Bring your brightest smile and energy for the celebrations!</p>`;
       }
     }
 
@@ -420,30 +420,7 @@
     if (saved) setTeam(saved, false);
   } catch (_) {}
 
-  // --- PART 3 INTERACTIVE: Joota Chhupai ---
-  const juttiFind = document.querySelector('#juttiFind');
-  const juttiHint = document.querySelector('#juttiHint');
-  const juttiReward = document.querySelector('#juttiReward');
-  const juttiReset = document.querySelector('#juttiReset');
-
-  if (juttiFind && juttiReward) {
-    juttiFind.addEventListener('click', () => {
-      juttiReward.hidden = false;
-      juttiFind.style.display = 'none';
-      if (juttiHint) juttiHint.textContent = 'Mission accomplished! Time to negotiate the shagun.';
-      burstPetals(window.innerWidth / 2, window.innerHeight / 2, 25);
-    });
-  }
-
-  if (juttiReset && juttiFind && juttiReward) {
-    juttiReset.addEventListener('click', () => {
-      juttiReward.hidden = true;
-      juttiFind.style.display = 'block';
-      if (juttiHint) juttiHint.textContent = 'Look closely near the festive haveli entrance and tap the hidden jutti!';
-    });
-  }
-
-  // --- PART 4: Add to Calendar (.ics Generator) ---
+  // --- Add to Calendar (.ics Generator) ---
   function escapeIcs(value) {
     return (value || '').replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
   }
@@ -468,7 +445,7 @@
       `DTEND:${end}`,
       `SUMMARY:${escapeIcs(title)}`,
       `LOCATION:${escapeIcs(location)}`,
-      'DESCRIPTION:Wedding celebration of Ankur & Pritika (#AnkurKiPreeto)',
+      'DESCRIPTION:Wedding celebration of Ankur & Pritika',
       'STATUS:CONFIRMED',
       'END:VEVENT',
       'END:VCALENDAR'

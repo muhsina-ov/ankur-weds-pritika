@@ -1367,8 +1367,14 @@ a {
   gap: 2.5rem;
 }
 
+.fun-grid--single {
+  grid-template-columns: 1fr !important;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
 @media (min-width: 880px) {
-  .fun-grid {
+  .fun-grid:not(.fun-grid--single) {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -1886,6 +1892,114 @@ a {
   margin: 0.75rem 0 0.5rem;
 }
 
+/* Jaggo Callout Block (Cocktail & Mehendi) */
+.event-card__jaggo-box {
+  margin: 1.25rem auto 1.5rem;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, rgba(253, 248, 237, 0.98), rgba(246, 235, 206, 0.92));
+  border: 1.5px solid var(--gold-rich);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 4px 18px rgba(171, 130, 53, 0.12);
+  position: relative;
+}
+
+.event-card__jaggo-box::before,
+.event-card__jaggo-box::after {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-rich);
+  font-size: 0.85rem;
+}
+
+.event-card__jaggo-box::before {
+  left: 1rem;
+}
+
+.event-card__jaggo-box::after {
+  right: 1rem;
+}
+
+.jaggo-intro {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #5c4a38;
+  margin-bottom: 0.25rem;
+}
+
+.jaggo-title {
+  font-family: 'Playfair Display', 'Rozha One', 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--pine-deep);
+  line-height: 1.1;
+  margin: 0.35rem 0;
+  text-shadow: 0 1px 2px rgba(171, 130, 53, 0.15);
+}
+
+.jaggo-by {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-rich);
+}
+
+/* Grandparents Block (Shaadi) */
+.event-card__grandparents-block {
+  margin: 0 auto 1.25rem;
+  text-align: center;
+  max-width: 520px;
+}
+
+.event-card__blessing-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-rich);
+  margin-bottom: 0.6rem;
+}
+
+.event-card__grandparents-names {
+  background: #faf6ee;
+  border: 1px solid rgba(212, 175, 86, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.25rem;
+  margin: 0.5rem auto 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.event-card__grandparents-names p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.12rem;
+  color: #351c09;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.event-card__grandparents-names strong {
+  color: var(--pine-deep);
+  font-weight: 700;
+}
+
+.event-card__blessing-invite {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #5c4a38;
+  margin-top: 0.5rem;
+}
+
 /* Invitation Copy Text */
 .event-card__invitation {
   font-family: 'Cormorant Garamond', Georgia, serif;
@@ -2115,7 +2229,8 @@ a {
   gap: 1.5rem;
   max-width: 620px;
   width: 100%;
-  margin-top: 1rem;
+  margin: 1.5rem auto 0;
+  justify-content: center;
 }
 
 .rsvp-card {
@@ -2140,9 +2255,17 @@ a {
 
 .rsvp-card__header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.85rem;
-  text-align: left;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.rsvp-card__header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .rsvp-card__avatar {
