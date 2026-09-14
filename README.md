@@ -20,7 +20,7 @@ Luxury digital wedding invitation for **Ankur & Pritika**, celebrating on **04 D
   - **Sagan – Patiala Night** (02 Dec, Chinaar Chhattarpur)
   - **Cocktail & Mehendi : Shaam-e-Ishq** (03 Dec, Radisson Blu Plaza Delhi Airport, hosted by Nidhi Bhua & Yogesh Jiju, with dedicated JAGGO highlight)
   - **Haldi : Sagna vaali Haldi** (04 Dec, The Umrao, Gurgaon)
-  - **Wedding : Varmala & Vows** (04 Dec, The Umrao, Gurgaon, Seherabandi 6:00 PM onwards, blessed by both Dada-Dadi and Nanu-Nani)
+  - **Wedding : Varmala & Vows** (04 Dec, The Umrao, Gurgaon, Seherabandi 6:00 PM onwards, blessed by both Dada-Dadi and Nana-Nani)
 - Direct interactive RSVP contact cards with click-to-call and WhatsApp links connected to family coordinators Mamta (+91 88007 30303) and Vanshika (+91 82875 44529).
 
 ### Part 3: Our Story (Real Photos)

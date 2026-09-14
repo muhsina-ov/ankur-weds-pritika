@@ -1998,6 +1998,10 @@ a {
   font-style: italic;
   color: #5c4a38;
   margin-top: 0.5rem;
+  line-height: 1.45;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Invitation Copy Text */
