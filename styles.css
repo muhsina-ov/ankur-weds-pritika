@@ -1866,8 +1866,8 @@ a {
 }
 
 .event-card__name--shaadi {
-  font-size: clamp(2.4rem, 5.5vw, 3.4rem);
-  letter-spacing: 0.08em;
+  font-size: clamp(2.1rem, 4.8vw, 3rem);
+  letter-spacing: 0.02em;
   background: linear-gradient(135deg, var(--pine-deep) 40%, #7b1e28 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
