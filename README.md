@@ -18,9 +18,9 @@ Luxury digital wedding invitation for **Ankur & Pritika**, celebrating on **04 D
 - Centered royal invitation cards for all 5 wedding functions matching the family's exact requests:
   - **Nirankari Soulful Sufi Night** (21 Nov, Jaypee Siddharth, invocation: TU HI NIRANKAR, Satguru Mata Sudiksha Ji blessings)
   - **Sagan – Patiala Night** (02 Dec, Chinaar Chhattarpur)
-  - **Cocktail & Mehendi : Shaam-e-Ishq** (03 Dec, Radisson Blu Plaza Delhi Airport, hosted by Nidhi Bhua & Yogesh Jiju, with dedicated JAGGO highlight)
-  - **Haldi : Sagna vaali Haldi** (04 Dec, The Umrao, Gurgaon)
-  - **Wedding : Varmala & Vows** (04 Dec, The Umrao, Gurgaon, Seherabandi 6:00 PM onwards, blessed by both Dada-Dadi and Nana-Nani)
+  - **Cocktail & Mehendi : Shaam-e-Ishq** (03 Dec, Radisson Blu Plaza Delhi Airport, hosted by Vandana, Nidhi & Minakshi, with dedicated JAGGO highlight)
+  - **Haldi : Sagna vaali Haldi** (04 Dec, The Umrao, Gurgaon, hosted by Arshiya, Niharika & Sadika for Ankur Bhaiya)
+  - **Wedding : Varmala & Vows** (04 Dec, The Umrao, Gurgaon, Seherabandi 6:00 PM onwards, blessed by Grandparents Dada ji-Dadi ji & Nana ji-Nani ji, hosted by Ajay & Vandana)
 - Direct interactive RSVP contact cards with click-to-call and WhatsApp links connected to family coordinators Mamta (+91 88007 30303) and Vanshika (+91 82875 44529).
 
 ### Part 3: Our Story (Real Photos)

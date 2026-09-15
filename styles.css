@@ -2020,6 +2020,30 @@ a {
   font-weight: 600;
 }
 
+/* Haldi Honoree Block */
+.event-card__honoree-block {
+  margin: 0.5rem auto 1.25rem;
+  text-align: center;
+}
+
+.event-card__honoree-intro {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #5c4a38;
+  margin-bottom: 0.35rem;
+}
+
+.event-card__honoree-name {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 3.8vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pine-deep);
+  line-height: 1.2;
+}
+
 /* Ornate Diamond Rule */
 .event-card__ornament-rule {
   display: flex;
