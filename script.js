@@ -420,54 +420,40 @@
     if (saved) setTeam(saved, false);
   } catch (_) {}
 
-  // --- Add to Calendar (.ics Generator) ---
-  function escapeIcs(value) {
-    return (value || '').replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
-  }
-
-  function downloadCalendar(btn) {
-    const title = btn.dataset.title || "Ankur & Pritika's Wedding Celebration";
+  // --- Add to Calendar (Prefilled Google Calendar & Google Maps) ---
+  function openCalendarEvent(btn) {
+    const rawTitle = (btn.dataset.title || "Wedding : Varmala & Vows").replace(/&amp;/g, '&');
+    const fullTitle = rawTitle.includes('Ankur') ? rawTitle : `${rawTitle} · Ankur & Pritika`;
     const start = btn.dataset.start || '20261204T123000Z';
     const end = btn.dataset.end || '20261204T183000Z';
-    const location = btn.dataset.location || 'New Delhi';
-    const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    const location = btn.dataset.location || 'The Umrao, Gurgaon';
+    const mapUrl = btn.dataset.map || '';
 
-    const icsData = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//Ankur Chauhan and Pritika Khanna//Wedding Invitation//EN',
-      'CALSCALE:GREGORIAN',
-      'METHOD:PUBLISH',
-      'BEGIN:VEVENT',
-      `UID:${start}-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}@ankur-pritika`,
-      `DTSTAMP:${stamp}`,
-      `DTSTART:${start}`,
-      `DTEND:${end}`,
-      `SUMMARY:${escapeIcs(title)}`,
-      `LOCATION:${escapeIcs(location)}`,
-      'DESCRIPTION:Wedding celebration of Ankur & Pritika',
-      'STATUS:CONFIRMED',
-      'END:VEVENT',
-      'END:VCALENDAR'
-    ].join('\r\n');
+    // Construct rich details with venue map link
+    const detailsLines = [
+      'Wedding celebrations of Ankur Chauhan & Pritika Khanna.',
+      mapUrl ? `📍 Venue Google Maps:\n${mapUrl}` : '',
+      'Join us to shower your blessings!'
+    ].filter(Boolean).join('\n\n');
 
-    const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.ics`;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(url);
+    // Build Google Calendar TEMPLATE URL
+    const gcalUrl = new URL('https://calendar.google.com/calendar/render');
+    gcalUrl.searchParams.set('action', 'TEMPLATE');
+    gcalUrl.searchParams.set('text', fullTitle);
+    gcalUrl.searchParams.set('dates', `${start}/${end}`);
+    gcalUrl.searchParams.set('location', location);
+    gcalUrl.searchParams.set('details', detailsLines);
+
+    // Open prefilled Google Calendar event
+    window.open(gcalUrl.toString(), '_blank', 'noopener,noreferrer');
 
     const prev = btn.textContent;
-    btn.textContent = 'Saved to Calendar ✓';
+    btn.textContent = 'Opening Calendar... ✓';
     setTimeout(() => { btn.textContent = prev; }, 2200);
   }
 
   document.querySelectorAll('.calendar-button').forEach(btn => {
-    btn.addEventListener('click', () => downloadCalendar(btn));
+    btn.addEventListener('click', () => openCalendarEvent(btn));
   });
 
 })();
